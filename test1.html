@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Physics Revision</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .question {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #007bff;
+        }
+        .question h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .options {
+            margin: 15px 0;
+        }
+        .option {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .option:hover {
+            background: #e9ecef;
+            border-color: #007bff;
+        }
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .submit-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 10px;
+            transition: background 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: #0056b3;
+        }
+        .score {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+            padding: 20px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+        .reset-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 10px;
+            transition: background 0.3s ease;
+        }
+        .reset-btn:hover {
+            background: #545b62;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔬 Lucas Physics Revision 🚀</h1>
+        
+        <form id="physicsQuiz">
+            <!-- Question 1: Forces -->
+            <div class="question">
+                <h3>1. What is Newton's First Law of Motion?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="a">
+                        An object at rest stays at rest, and an object in motion continues to move at constant velocity, unless acted upon by an external force
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="b">
+                        Force equals mass times acceleration (F = ma)
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="c">
+                        For every action, there is an equal and opposite reaction
+                    </label>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+            </div>
+
+            <!-- Question 2: Waves -->
+            <div class="question">
+                <h3>2. What do waves transfer?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="a">
+                        Matter only
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="b">
+                        Energy without transferring matter
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="c">
+                        Both matter and energy
+                    </label>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+            </div>
+
+            <!-- Question 3: Wave Types -->
+            <div class="question">
+                <h3>3. In a transverse wave, the oscillations are:</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="a">
+                        Parallel to the direction of energy transfer
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="b">
+                        Perpendicular to the direction of energy transfer
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="c">
+                        In the opposite direction to energy transfer
+                    </label>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+            </div>
+
+            <!-- Question 4: Sound Waves -->
+            <div class="question">
+                <h3>4. What type of wave is a sound wave?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="a">
+                        Transverse wave
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="b">
+                        Longitudinal wave
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="c">
+                        Surface wave
+                    </label>
+                </div>
+                <div class="feedback" id="feedback4"></div>
+            </div>
+
+            <!-- Question 5: Frequency -->
+            <div class="question">
+                <h3>5. Frequency is defined as:</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="a">
+                        The distance from one point on a wave to the identical point on the next wave
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="b">
+                        The number of waves that pass a point each second
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="c">
+                        The maximum distance of a point on the wave from its rest position
+                    </label>
+                </div>
+                <div class="feedback" id="feedback5"></div>
+            </div>
+
+            <!-- Question 6: Energy Transfer -->
+            <div class="question">
+                <h3>6. What are the main ways energy can be transferred?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q6" value="a">
+                        By heating, electric currents, mechanically and waves
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="b">
+                        Only by heating and electric currents
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="c">
+                        Only mechanically and by waves
+                    </label>
+                </div>
+                <div class="feedback" id="feedback6"></div>
+            </div>
+
+            <!-- Question 7: Reflection -->
+            <div class="question">
+                <h3>7. The law of reflection states that:</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q7" value="a">
+                        The angle of incidence is greater than the angle of reflection
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="b">
+                        The angle of incidence equals the angle of reflection
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="c">
+                        The angle of incidence is less than the angle of reflection
+                    </label>
+                </div>
+                <div class="feedback" id="feedback7"></div>
+            </div>
+
+            <!-- Question 8: Wave Speed -->
+            <div class="question">
+                <h3>8. The equation for wave speed is:</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q8" value="a">
+                        Speed = frequency ÷ wavelength
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="b">
+                        Speed = frequency × wavelength
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="c">
+                        Speed = wavelength ÷ frequency
+                    </label>
+                </div>
+                <div class="feedback" id="feedback8"></div>
+            </div>
+
+            <!-- Question 9: Refraction -->
+            <div class="question">
+                <h3>9. When light moves from air into glass, it:</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q9" value="a">
+                        Speeds up and bends away from the normal
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="b">
+                        Slows down and bends towards the normal
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="c">
+                        Continues in a straight line without changing speed
+                    </label>
+                </div>
+                <div class="feedback" id="feedback9"></div>
+            </div>
+
+            <!-- Question 10: Space and Sound -->
+            <div class="question">
+                <h3>10. Why can't sound travel through space?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q10" value="a">
+                        Space is too cold for sound waves
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q10" value="b">
+                        Space is a vacuum with no air particles for sound waves to travel through
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q10" value="c">
+                        Sound waves move too slowly in space
+                    </label>
+                </div>
+                <div class="feedback" id="feedback10"></div>
+            </div>
+        </form>
+
+        <div style="text-align: center;">
+            <button type="button" class="submit-btn" onclick="checkAnswers()">Check My Answers</button>
+            <button type="button" class="reset-btn" onclick="resetQuiz()">Start Over</button>
+        </div>
+
+        <div class="score" id="scoreDisplay"></div>
+    </div>
+
+    <script>
+        const answers = {
+            q1: 'a',
+            q2: 'b', 
+            q3: 'b',
+            q4: 'b',
+            q5: 'b',
+            q6: 'a',
+            q7: 'b',
+            q8: 'b',
+            q9: 'b',
+            q10: 'b'
+        };
+
+        const explanations = {
+            q1: "Correct! Newton's First Law states that objects at rest stay at rest and objects in motion stay in motion unless acted upon by an external force.",
+            q2: "Correct! Waves transfer energy without transferring matter - this is a fundamental property of waves.",
+            q3: "Correct! In transverse waves, the oscillations are perpendicular (at 90°) to the direction of energy transfer.",
+            q4: "Correct! Sound waves are longitudinal waves where the oscillations are parallel to the direction of energy transfer.",
+            q5: "Correct! Frequency is the number of waves that pass a point each second, measured in Hertz (Hz).",
+            q6: "Correct! Energy can be transferred by heating, electric currents, mechanically, and by waves.",
+            q7: "Correct! The law of reflection states that the angle of incidence equals the angle of reflection.",
+            q8: "Correct! Wave speed = frequency × wavelength (v = fλ).",
+            q9: "Correct! When light enters a denser medium like glass, it slows down and bends towards the normal.",
+            q10: "Correct! Space is a vacuum with no air particles, and sound waves need a medium to travel through."
+        };
+
+        const wrongExplanations = {
+            q1: "Not quite. Newton's First Law is about objects staying at rest or in constant motion unless a force acts on them.",
+            q2: "Not quite. Waves transfer energy but do not transfer matter - the particles oscillate but don't move with the wave.",
+            q3: "Not quite. In transverse waves, oscillations are perpendicular to energy transfer. Parallel oscillations are in longitudinal waves.",
+            q4: "Not quite. Sound waves are longitudinal - the air particles vibrate back and forth parallel to the wave direction.",
+            q5: "Not quite. That describes wavelength (first option) and amplitude (third option). Frequency is waves per second.",
+            q6: "Not quite. There are four main ways: heating, electric currents, mechanically, and waves.",
+            q7: "Not quite. The angles are equal - this is what makes reflection predictable and useful.",
+            q8: "Not quite. Remember: v = fλ (velocity = frequency × wavelength).",
+            q9: "Not quite. Light slows down in denser materials and bends towards the normal.",
+            q10: "Not quite. Sound needs particles to vibrate through - space has no air particles."
+        };
+
+        function checkAnswers() {
+            let score = 0;
+            const totalQuestions = Object.keys(answers).length;
+            
+            for (let question in answers) {
+                const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                const feedback = document.getElementById(`feedback${question.slice(1)}`);
+                
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === answers[question]) {
+                        score++;
+                        feedback.className = 'feedback correct';
+                        feedback.innerHTML = '✅ ' + explanations[question];
+                    } else {
+                        feedback.className = 'feedback incorrect';
+                        feedback.innerHTML = '❌ ' + wrongExplanations[question];
+                    }
+                } else {
+                    feedback.className = 'feedback incorrect';
+                    feedback.innerHTML = '❌ Please select an answer for this question.';
+                }
+                feedback.style.display = 'block';
+            }
+            
+            const percentage = Math.round((score / totalQuestions) * 100);
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            
+            let message = '';
+            if (percentage >= 90) {
+                message = '🌟 Excellent! You really know your physics!';
+            } else if (percentage >= 80) {
+                message = '🎉 Great job! You have a solid understanding!';
+            } else if (percentage >= 70) {
+                message = '👍 Good work! Keep studying to improve!';
+            } else if (percentage >= 60) {
+                message = '📚 Not bad, but more revision needed!';
+            } else {
+                message = '💪 Keep practicing - you\'ll get there!';
+            }
+            
+            scoreDisplay.innerHTML = `
+                <strong>Your Score: ${score}/${totalQuestions} (${percentage}%)</strong><br>
+                ${message}
+            `;
+            scoreDisplay.style.display = 'block';
+            
+            // Scroll to score
+            scoreDisplay.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function resetQuiz() {
+            // Clear all radio buttons
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => radio.checked = false);
+            
+            // Hide all feedback
+            const feedbacks = document.querySelectorAll('.feedback');
+            feedbacks.forEach(feedback => feedback.style.display = 'none');
+            
+            // Hide score
+            document.getElementById('scoreDisplay').style.display = 'none';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
