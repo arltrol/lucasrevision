@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lucas Physics Calculations Quiz</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question-box {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .option-btn {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 12px;
+      background: #292929;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .option-btn:hover {
+      background: #3a3a3a;
+    }
+    .feedback {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .correct {
+      background-color: #2e7d32;
+    }
+    .incorrect {
+      background-color: #c62828;
+    }
+    #nextBtn {
+      margin-top: 20px;
+      display: none;
+      padding: 10px 20px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+<h1>🧪 Lucas Physics Calculations Quiz 🧪</h1>
+<div class="question-box">
+  <div id="questionText">Loading question...</div>
+  <div id="optionsContainer" class="options"></div>
+  <div id="feedback" class="feedback"></div>
+  <button id="nextBtn">Next Question</button>
+</div>
+<script>
+const questions = 
+[{"question": "If a car has a mass of 1,000 kg and accelerates at 3 m/s\u00b2, what is the force applied?", "options": ["1,000 N", "3,000 N", "333 N", "30,000 N"], "answer": 1, "explanation": "Using F = ma \u2192 F = 1000 \u00d7 3 = 3000 N"}, {"question": "If a wave has a frequency of 50 Hz and a wavelength of 2 m, what is the wave speed?", "options": ["25 m/s", "52 m/s", "100 m/s", "2.5 m/s"], "answer": 2, "explanation": "Using v = f\u03bb \u2192 v = 50 \u00d7 2 = 100 m/s"}, {"question": "A force of 20 N is applied to an object with mass 4 kg. What is its acceleration?", "options": ["80 m/s\u00b2", "5 m/s\u00b2", "16 m/s\u00b2", "0.2 m/s\u00b2"], "answer": 1, "explanation": "Using F = ma \u2192 a = F/m = 20 / 4 = 5 m/s\u00b2"}, {"question": "What is the energy transferred when 5 kg of water is heated by 10\u00b0C (c = 4200 J/kg\u00b0C)?", "options": ["210,000 J", "42,000 J", "2,100 J", "840,000 J"], "answer": 0, "explanation": "Using Q = mc\u0394T \u2192 Q = 5 \u00d7 4200 \u00d7 10 = 210,000 J"}, {"question": "If a wave travels 300 m in 6 seconds, what is its speed?", "options": ["50 m/s", "1800 m/s", "0.02 m/s", "60 m/s"], "answer": 0, "explanation": "Speed = Distance / Time = 300 / 6 = 50 m/s"}, {"question": "If the mass is 10 kg and the gravitational field strength is 9.8 N/kg, what is the weight?", "options": ["98 N", "10 N", "9.8 N", "980 N"], "answer": 0, "explanation": "Weight = mass \u00d7 gravity = 10 \u00d7 9.8 = 98 N"}, {"question": "What is the work done if a force of 15 N moves an object 4 m?", "options": ["60 J", "45 J", "30 J", "19 J"], "answer": 0, "explanation": "Work = Force \u00d7 Distance = 15 \u00d7 4 = 60 J"}, {"question": "If a car slows from 20 m/s to 0 m/s in 5 seconds, what is its acceleration?", "options": ["4 m/s\u00b2", "5 m/s\u00b2", "-4 m/s\u00b2", "-5 m/s\u00b2"], "answer": 3, "explanation": "a = (v - u)/t = (0 - 20)/5 = -4 m/s\u00b2"}, {"question": "An object moves at 10 m/s for 8 seconds. How far does it travel?", "options": ["80 m", "18 m", "800 m", "8 m"], "answer": 0, "explanation": "Distance = Speed \u00d7 Time = 10 \u00d7 8 = 80 m"}, {"question": "How much energy is transferred by a 60W bulb in 2 minutes?", "options": ["120 J", "3600 J", "7200 J", "1.2 J"], "answer": 2, "explanation": "Energy = Power \u00d7 Time = 60 \u00d7 120 = 7200 J"}]
+;
+let currentQuestion = 0;
+
+const questionText = document.getElementById('questionText');
+const optionsContainer = document.getElementById('optionsContainer');
+const feedback = document.getElementById('feedback');
+const nextBtn = document.getElementById('nextBtn');
+
+function showQuestion(index) {
+  const q = questions[index];
+  questionText.textContent = q.question;
+  optionsContainer.innerHTML = '';
+  feedback.textContent = '';
+  feedback.className = 'feedback';
+  nextBtn.style.display = 'none';
+
+  q.options.forEach((option, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.textContent = option;
+    btn.onclick = () => checkAnswer(i, q);
+    optionsContainer.appendChild(btn);
+  });
+}
+
+function checkAnswer(selectedIndex, question) {
+  const isCorrect = selectedIndex === question.answer;
+  feedback.textContent = isCorrect
+    ? "✅ Correct! " + question.explanation
+    : "❌ BAD BUCK BUCK! The correct answer is '" + question.options[question.answer] + "'. " + question.explanation;
+  feedback.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
+  document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
+  nextBtn.style.display = 'block';
+}
+
+nextBtn.onclick = () => {
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    showQuestion(currentQuestion);
+  } else {
+    questionText.textContent = "🎉 You've completed the quiz!";
+    optionsContainer.innerHTML = '';
+    feedback.textContent = '';
+    nextBtn.style.display = 'none';
+  }
+};
+
+showQuestion(currentQuestion);
+</script>
+</body>
+</html>
