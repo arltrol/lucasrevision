@@ -1,157 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Revision Stuff</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: white;
-        }
-        
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-        }
-        
-        h1 {
-            color: #ffffff;
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .subtitle {
-            color: #e0e0e0;
-            font-size: 1.5em;
-            margin-bottom: 50px;
-            font-style: italic;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        .toc {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .toc li {
-            margin: 25px 0;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .toc li:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .toc a {
-            display: block;
-            padding: 25px 30px;
-            color: white;
-            text-decoration: none;
-            font-size: 1.3em;
-            font-weight: 600;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .toc a:hover {
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .icon {
-            font-size: 1.5em;
-            margin-right: 15px;
-        }
-        
-        .physics-test {
-            background: linear-gradient(45deg, #ff6b6b, #ffa500);
-        }
-        
-        .physics-revision {
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-        }
-        
-        .icon-container {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: white;
-            font-size: 1.5em;
-        }
-        
-        .footer {
-            margin-top: 40px;
-            color: #d0d0d0;
-            font-size: 0.9em;
-            font-style: italic;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucas Revision Stuff</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      font-size: 2.4em;
+      text-align: center;
+      margin-bottom: 0.3em;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      text-align: center;
+      color: #bbb;
+      margin-bottom: 2em;
+    }
+
+    .toc {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc li {
+      margin: 12px 0;
+      border-radius: 8px;
+      background-color: #2a2a2a;
+      transition: background 0.3s ease;
+    }
+
+    .toc li:hover {
+      background-color: #333;
+    }
+
+    .toc a {
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      text-decoration: none;
+      color: #f0f0f0;
+      font-size: 1.05em;
+      font-weight: 500;
+    }
+
+    .icon {
+      margin-right: 12px;
+      font-size: 1.4em;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎓 Lucas Revision Stuff 🎓</h1>
-        <p class="subtitle">Bad Buck Buck</p>
-        
-        <ul class="toc">
-            <li>
-                <a href="test1.html">
-                    <span class="icon">🧪</span>
-                    PHYSICS TEST 1
-                </a>
-            </li>
-            
-            <li>
-                <a href="revision.html">
-                    <span class="icon">📚</span>
-                    Physics Revision (from teams)
-                </a>
-            </li>
-              <li>
-                <a href="001_PhysicsRevision.pdf">
-                    <span class="icon">📚</span>
-                    Physics Revision (Papa)
-                </a>
-            </li>
-             <li>
-                <a href="001_EnglishPoetryRevision.pdf">
-                    <span class="icon">📚</span>
-                    English Revision (Papa)
-                </a>
-            </li>
-            <li>
-                <a href="001_ComputerScienceRevision.pdf">
-                    <span class="icon">📚</span>
-                    Computer Science Revision (Papa)
-                </a>
-            </li>
-        </ul>
-        
-        <div class="footer">
-            <p>Ready to ace those physics exams! 🚀</p>
-        </div>
+  <div class="container">
+    <h1>🎓 Lucas Revision Stuff 🎓</h1>
+    <p class="subtitle">Bad Buck Buck</p>
+
+    <ul class="toc">
+      <li>
+        <a href="test1.html">
+          <span class="icon">🧪</span>
+          PHYSICS TEST 1
+        </a>
+      </li>
+      <li>
+        <a href="revision.html">
+          <span class="icon">📚</span>
+          Physics Revision (from Teams)
+        </a>
+      </li>
+      <li>
+        <a href="001_PhysicsRevision.pdf">
+          <span class="icon">📚</span>
+          Physics Revision (Papa)
+        </a>
+      </li>
+      <li>
+        <a href="001_EnglishPoetryRevision.pdf">
+          <span class="icon">📚</span>
+          English Revision (Papa)
+        </a>
+      </li>
+      <li>
+        <a href="001_ComputerScienceRevision.pdf">
+          <span class="icon">📚</span>
+          Computer Science Revision (Papa)
+        </a>
+      </li>
+    </ul>
+
+    <div class="footer">
+      <p>Ready to ace those physics exams! 🚀</p>
     </div>
+  </div>
 </body>
 </html>
