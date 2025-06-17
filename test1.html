@@ -10,57 +10,61 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
             line-height: 1.6;
+            color: #e0e0e0;
         }
         
         .container {
-            background: white;
+            background: #2d2d3a;
             border-radius: 15px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             margin-bottom: 20px;
+            border: 1px solid #404040;
         }
         
         h1 {
             text-align: center;
-            color: #2c3e50;
+            color: #4fc3f7;
             font-size: 2.5em;
             margin-bottom: 10px;
-            border-bottom: 3px solid #3498db;
+            border-bottom: 3px solid #4fc3f7;
             padding-bottom: 15px;
         }
         
         .exam-info {
             text-align: center;
-            background: #ecf0f1;
+            background: #1e1e2e;
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 30px;
-            color: #2c3e50;
+            color: #b0b0b0;
+            border: 1px solid #404040;
         }
         
-        .question {
-            background: #f8f9fa;
-            border-left: 5px solid #3498db;
+        .question-container {
+            background: #353545;
+            border-left: 5px solid #4fc3f7;
             padding: 25px;
             margin: 25px 0;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            border: 1px solid #505050;
         }
         
         .question-number {
             font-weight: bold;
             font-size: 1.3em;
-            color: #2c3e50;
+            color: #4fc3f7;
             margin-bottom: 15px;
             display: block;
         }
         
         .question-text {
             font-size: 1.1em;
-            color: #34495e;
+            color: #e0e0e0;
             margin-bottom: 20px;
             line-height: 1.5;
         }
@@ -76,21 +80,26 @@
             align-items: flex-start;
             margin: 12px 0;
             padding: 12px;
-            background: white;
+            background: #2a2a3a;
             border-radius: 6px;
-            border: 2px solid #ecf0f1;
+            border: 2px solid #505050;
             transition: all 0.3s ease;
             cursor: pointer;
         }
         
         .options li:hover {
-            border-color: #3498db;
-            background: #f0f7ff;
+            border-color: #4fc3f7;
+            background: #404055;
+        }
+        
+        .options li.selected {
+            border-color: #4fc3f7;
+            background: #404055;
         }
         
         .option-letter {
-            background: #3498db;
-            color: white;
+            background: #4fc3f7;
+            color: #1a1a2e;
             width: 25px;
             height: 25px;
             border-radius: 50%;
@@ -105,50 +114,124 @@
         .option-text {
             flex: 1;
             font-size: 1em;
-            color: #2c3e50;
+            color: #e0e0e0;
         }
         
-        .submit-section {
-            text-align: center;
-            margin-top: 40px;
-            padding: 30px;
-            background: #ecf0f1;
-            border-radius: 10px;
-        }
-        
-        .submit-btn {
+        .answer-btn {
             background: #27ae60;
             color: white;
-            padding: 15px 40px;
+            padding: 12px 30px;
             border: none;
             border-radius: 8px;
-            font-size: 1.2em;
+            font-size: 1.1em;
             cursor: pointer;
             transition: background 0.3s ease;
+            margin: 20px 10px 20px 0;
         }
         
-        .submit-btn:hover {
+        .answer-btn:hover {
             background: #229954;
         }
         
-        input[type="radio"] {
-            margin-right: 10px;
-            transform: scale(1.2);
+        .answer-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+        
+        .next-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin: 20px 0;
+        }
+        
+        .next-btn:hover {
+            background: #2980b9;
+        }
+        
+        .explanation {
+            background: #1e1e2e;
+            border: 1px solid #505050;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .explanation.correct {
+            border-left: 5px solid #27ae60;
+        }
+        
+        .explanation.incorrect {
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .explanation h4 {
+            margin-top: 0;
+            color: #4fc3f7;
         }
         
         .progress-bar {
-            background: #ecf0f1;
+            background: #1e1e2e;
             height: 8px;
             border-radius: 4px;
             margin: 20px 0;
             overflow: hidden;
+            border: 1px solid #505050;
         }
         
         .progress-fill {
-            background: linear-gradient(90deg, #3498db, #2ecc71);
+            background: linear-gradient(90deg, #4fc3f7, #27ae60);
             height: 100%;
             width: 0%;
             transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            color: #b0b0b0;
+            margin-top: 10px;
+        }
+        
+        .final-results {
+            background: #1e1e2e;
+            border: 1px solid #505050;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            display: none;
+        }
+        
+        .final-results h2 {
+            color: #4fc3f7;
+            margin-bottom: 20px;
+        }
+        
+        .score-display {
+            font-size: 2em;
+            margin: 20px 0;
+            color: #27ae60;
+        }
+        
+        .restart-btn {
+            background: #9b59b6;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .restart-btn:hover {
+            background: #8e44ad;
         }
     </style>
 </head>
@@ -158,1018 +241,560 @@
         
         <div class="exam-info">
             <h3>Exam Instructions</h3>
-            <p><strong>Time Limit:</strong> 45 minutes | <strong>Questions:</strong> 30 | <strong>Topic:</strong> Wave Properties and Behavior</p>
-            <p>Choose the best answer for each question. You can review and change your answers before submitting.</p>
+            <p><strong>Questions:</strong> 30 | <strong>Topic:</strong> Wave Properties and Behavior</p>
+            <p>Answer each question one at a time. You'll get immediate feedback with explanations.</p>
         </div>
         
         <div class="progress-bar">
             <div class="progress-fill" id="progressBar"></div>
         </div>
+        <div class="progress-text">
+            Question <span id="currentQuestion">1</span> of <span id="totalQuestions">30</span>
+        </div>
         
-        <form id="examForm">
-            
-            <div class="question">
-                <span class="question-number">1. What is Newton's First Law of Motion?</span>
-                <div class="question-text">
-                    Choose the correct statement of Newton's First Law of Motion:
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q1', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q1" value="a" id="q1a">
-                            An object at rest stays at rest, and an object in motion continues to move at constant velocity, unless acted upon by an external force
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q1', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q1" value="b" id="q1b">
-                            Force equals mass times acceleration (F = ma)
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q1', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q1" value="c" id="q1c">
-                            For every action, there is an equal and opposite reaction
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">2. What do waves transfer?</span>
-                <div class="question-text">
-                    All waves have one fundamental property in common. What do they transfer?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q2', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q2" value="a" id="q2a">
-                            Matter from one place to another
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q2', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q2" value="b" id="q2b">
-                            Energy without transferring matter
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q2', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q2" value="c" id="q2c">
-                            Both matter and energy together
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">3. Which describes a transverse wave?</span>
-                <div class="question-text">
-                    In a transverse wave, how do the oscillations relate to the direction of energy transfer?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q3', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q3" value="a" id="q3a">
-                            Oscillations are parallel to the direction of energy transfer
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q3', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q3" value="b" id="q3b">
-                            Oscillations are perpendicular to the direction of energy transfer
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q3', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q3" value="c" id="q3c">
-                            Oscillations are at a 45° angle to the direction of energy transfer
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">4. What is frequency measured in?</span>
-                <div class="question-text">
-                    The frequency of a wave is defined as the number of waves that pass a point per second. What is its unit?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q4', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q4" value="a" id="q4a">
-                            Meters (m)
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q4', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q4" value="b" id="q4b">
-                            Hertz (Hz)
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q4', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q4" value="c" id="q4c">
-                            Seconds (s)
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">5. What is amplitude?</span>
-                <div class="question-text">
-                    Which of the following correctly defines the amplitude of a wave?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q5', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q5" value="a" id="q5a">
-                            The distance from one wave peak to the next wave peak
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q5', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q5" value="b" id="q5b">
-                            The maximum displacement from the rest position
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q5', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q5" value="c" id="q5c">
-                            The number of waves per second
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">6. Which is an example of a longitudinal wave?</span>
-                <div class="question-text">
-                    Longitudinal waves have oscillations parallel to the direction of energy transfer. Which is an example?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q6', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q6" value="a" id="q6a">
-                            Light waves
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q6', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q6" value="b" id="q6b">
-                            Sound waves
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q6', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q6" value="c" id="q6c">
-                            Water waves
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">7. What is the wave equation?</span>
-                <div class="question-text">
-                    Which equation correctly relates wave velocity, frequency, and wavelength?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q7', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q7" value="a" id="q7a">
-                            v = f + λ
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q7', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q7" value="b" id="q7b">
-                            v = f × λ
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q7', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q7" value="c" id="q7c">
-                            v = f / λ
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">8. What happens during reflection?</span>
-                <div class="question-text">
-                    According to the law of reflection, what is the relationship between angles?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q8', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q8" value="a" id="q8a">
-                            The angle of incidence equals the angle of reflection
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q8', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q8" value="b" id="q8b">
-                            The angle of incidence is twice the angle of reflection
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q8', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q8" value="c" id="q8c">
-                            The angles are always 90° apart
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">9. What causes refraction?</span>
-                <div class="question-text">
-                    Refraction occurs when a wave changes direction. What causes this to happen?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q9', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q9" value="a" id="q9a">
-                            The wave bounces off a surface
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q9', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q9" value="b" id="q9b">
-                            The wave changes speed when entering a new medium
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q9', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q9" value="c" id="q9c">
-                            The wave's frequency changes
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">10. If a wave has a frequency of 50 Hz and wavelength of 4 m, what is its velocity?</span>
-                <div class="question-text">
-                    Calculate the wave velocity using the wave equation v = f × λ
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q10', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q10" value="a" id="q10a">
-                            200 m/s
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q10', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q10" value="b" id="q10b">
-                            12.5 m/s
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q10', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q10" value="c" id="q10c">
-                            54 m/s
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">11. What determines the pitch of a sound?</span>
-                <div class="question-text">
-                    Which wave property determines how high or low a sound appears to be?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q11', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q11" value="a" id="q11a">
-                            Amplitude
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q11', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q11" value="b" id="q11b">
-                            Frequency
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q11', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q11" value="c" id="q11c">
-                            Wavelength
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">12. What determines the loudness of a sound?</span>
-                <div class="question-text">
-                    Which wave property determines how loud or quiet a sound appears to be?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q12', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q12" value="a" id="q12a">
-                            Amplitude
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q12', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q12" value="b" id="q12b">
-                            Frequency
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q12', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q12" value="c" id="q12c">
-                            Velocity
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">13. What is the period of a wave?</span>
-                <div class="question-text">
-                    How is the period (T) of a wave defined?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q13', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q13" value="a" id="q13a">
-                            The number of waves per second
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q13', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q13" value="b" id="q13b">
-                            The time taken for one complete wave to pass a point
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q13', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q13" value="c" id="q13c">
-                            The distance between two wave peaks
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">14. What is the relationship between frequency and period?</span>
-                <div class="question-text">
-                    How are frequency (f) and period (T) mathematically related?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q14', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q14" value="a" id="q14a">
-                            f = T
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q14', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q14" value="b" id="q14b">
-                            f = 1/T
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q14', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q14" value="c" id="q14c">
-                            f = T²
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">15. What happens when light travels from air into glass?</span>
-                <div class="question-text">
-                    When light moves from a less dense to a more dense medium, what occurs?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q15', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q15" value="a" id="q15a">
-                            It bends away from the normal and speeds up
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q15', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q15" value="b" id="q15b">
-                            It bends toward the normal and slows down
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q15', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q15" value="c" id="q15c">
-                            It continues in a straight line unchanged
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">16. What are compressions and rarefactions?</span>
-                <div class="question-text">
-                    In longitudinal waves, what do compressions and rarefactions represent?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q16', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q16" value="a" id="q16a">
-                            Regions where particles are squeezed together and spread apart
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q16', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q16" value="b" id="q16b">
-                            The highest and lowest points of the wave
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q16', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q16" value="c" id="q16c">
-                            Different types of wave interference
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">17. Why can't sound travel through space?</span>
-                <div class="question-text">
-                    Sound waves cannot travel through the vacuum of space. Why is this?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q17', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q17" value="a" id="q17a">
-                            Space is too cold for sound waves
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q17', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q17" value="b" id="q17b">
-                            Sound needs particles to vibrate and space has no air
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q17', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q17" value="c" id="q17c">
-                            Gravity prevents sound waves from traveling
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">18. What is wavelength measured in?</span>
-                <div class="question-text">
-                    Wavelength is the distance from one wave peak to the next. What unit is used?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q18', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q18" value="a" id="q18a">
-                            Hertz (Hz)
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q18', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q18" value="b" id="q18b">
-                            Meters (m)
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q18', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q18" value="c" id="q18c">
-                            Seconds (s)
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">19. If 20 waves pass a point in 5 seconds, what is the frequency?</span>
-                <div class="question-text">
-                    Calculate the frequency using: frequency = number of waves ÷ time
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q19', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q19" value="a" id="q19a">
-                            4 Hz
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q19', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q19" value="b" id="q19b">
-                            25 Hz
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q19', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q19" value="c" id="q19c">
-                            100 Hz
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">20. What is the normal in wave diagrams?</span>
-                <div class="question-text">
-                    In reflection and refraction diagrams, what is the normal line?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q20', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q20" value="a" id="q20a">
-                            A line drawn at 90° to the surface
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q20', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q20" value="b" id="q20b">
-                            A line drawn parallel to the surface
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q20', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q20" value="c" id="q20c">
-                            A line drawn at 45° to the surface
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">21. Which waves can travel through a vacuum?</span>
-                <div class="question-text">
-                    Some waves require a medium to travel through, while others don't. Which can travel through empty space?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q21', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q21" value="a" id="q21a">
-                            Sound waves only
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q21', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q21" value="b" id="q21b">
-                            Light waves only
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q21', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q21" value="c" id="q21c">
-                            Both sound and light waves
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">22. What happens to wavelength when frequency increases (with constant speed)?</span>
-                <div class="question-text">
-                    If wave speed stays constant but frequency increases, what happens to wavelength?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q22', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q22" value="a" id="q22a">
-                            Wavelength increases
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q22', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q22" value="b" id="q22b">
-                            Wavelength decreases
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q22', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q22" value="c" id="q22c">
-                            Wavelength stays the same
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">23. What is diffraction?</span>
-                <div class="question-text">
-                    Diffraction is another important wave behavior. What is it?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q23', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q23" value="a" id="q23a">
-                            The bending of waves around obstacles or through gaps
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q23', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q23" value="b" id="q23b">
-                            The bouncing of waves off surfaces
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q23', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q23" value="c" id="q23c">
-                            The change in wave speed in different media
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">24. If a wave has a period of 0.5 seconds, what is its frequency?</span>
-                <div class="question-text">
-                    Use the relationship f = 1/T to calculate the frequency
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q24', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q24" value="a" id="q24a">
-                            0.5 Hz
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q24', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q24" value="b" id="q24b">
-                            2 Hz
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q24', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q24" value="c" id="q24c">
-                            1.5 Hz
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">25. What are the peaks and troughs of a wave?</span>
-                <div class="question-text">
-                    In a transverse wave, what do peaks and troughs represent?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q25', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q25" value="a" id="q25a">
-                            The maximum and minimum displacements from rest position
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q25', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q25" value="b" id="q25b">
-                            The points where the wave starts and stops
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q25', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q25" value="c" id="q25c">
-                            The fastest and slowest moving parts of the wave
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">26. A wave travels 100 meters in 5 seconds. What is its speed?</span>
-                <div class="question-text">
-                    Calculate wave speed using: speed = distance ÷ time
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q26', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q26" value="a" id="q26a">
-                            20 m/s
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q26', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q26" value="b" id="q26b">
-                            500 m/s
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q26', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q26" value="c" id="q26c">
-                            105 m/s
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">27. What stays constant when a wave refracts?</span>
-                <div class="question-text">
-                    When a wave enters a new medium and refracts, which property remains unchanged?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q27', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q27" value="a" id="q27a">
-                            Wavelength
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q27', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q27" value="b" id="q27b">
-                            Frequency
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q27', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q27" value="c" id="q27c">
-                            Speed
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">28. Which type of wave is light?</span>
-                <div class="question-text">
-                    Light is a type of electromagnetic wave. What kind of wave is it classified as?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q28', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q28" value="a" id="q28a">
-                            Longitudinal wave
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q28', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q28" value="b" id="q28b">
-                            Transverse wave
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q28', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q28" value="c" id="q28c">
-                            Neither longitudinal nor transverse
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">29. What is interference?</span>
-                <div class="question-text">
-                    When two waves meet, they can interfere with each other. What is interference?
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q29', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q29" value="a" id="q29a">
-                            When waves combine to produce a new wave pattern
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q29', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q29" value="b" id="q29b">
-                            When waves cancel each other out completely
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q29', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q29" value="c" id="q29c">
-                            When waves bounce off each other
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="question">
-                <span class="question-number">30. If a wave has frequency 100 Hz and velocity 340 m/s, what is its wavelength?</span>
-                <div class="question-text">
-                    Use the wave equation v = fλ, rearranged to find wavelength: λ = v/f
-                </div>
-                <ul class="options">
-                    <li onclick="selectOption(this, 'q30', 'a')">
-                        <div class="option-letter">A</div>
-                        <div class="option-text">
-                            <input type="radio" name="q30" value="a" id="q30a">
-                            3.4 m
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q30', 'b')">
-                        <div class="option-letter">B</div>
-                        <div class="option-text">
-                            <input type="radio" name="q30" value="b" id="q30b">
-                            34,000 m
-                        </div>
-                    </li>
-                    <li onclick="selectOption(this, 'q30', 'c')">
-                        <div class="option-letter">C</div>
-                        <div class="option-text">
-                            <input type="radio" name="q30" value="c" id="q30c">
-                            440 m
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="submit-section">
-                <h3>Exam Complete!</h3>
-                <p>Review your answers above before submitting.</p>
-                <button type="button" class="submit-btn" onclick="submitExam()">Submit Exam</button>
-                <div id="results" style="margin-top: 20px; display: none;"></div>
-            </div>
-
-        </form>
+        <div id="questionContainer" class="question-container">
+            <!-- Questions will be dynamically inserted here -->
+        </div>
+        
+        <div id="explanation" class="explanation">
+            <!-- Explanations will appear here -->
+        </div>
+        
+        <div>
+            <button id="answerBtn" class="answer-btn" onclick="checkAnswer()" disabled>Check Answer</button>
+            <button id="nextBtn" class="next-btn" onclick="nextQuestion()" style="display: none;">Next Question</button>
+        </div>
+        
+        <div id="finalResults" class="final-results">
+            <!-- Final results will appear here -->
+        </div>
     </div>
 
     <script>
-        let answeredQuestions = 0;
-        const totalQuestions = 30;
+        let currentQuestionIndex = 0;
+        let selectedAnswer = null;
+        let score = 0;
+        let answered = false;
 
-        // Correct answers
-        const correctAnswers = {
-            q1: 'a', q2: 'b', q3: 'b', q4: 'b', q5: 'b',
-            q6: 'b', q7: 'b', q8: 'a', q9: 'b', q10: 'a',
-            q11: 'b', q12: 'a', q13: 'b', q14: 'b', q15: 'b',
-            q16: 'a', q17: 'b', q18: 'b', q19: 'a', q20: 'a',
-            q21: 'b', q22: 'b', q23: 'a', q24: 'b', q25: 'a',
-            q26: 'a', q27: 'b', q28: 'b', q29: 'a', q30: 'a'
-        };
+        // Questions data with detailed explanations
+        const questions = [
+            {
+                id: 'q1',
+                number: 1,
+                text: 'What is Newton\'s First Law of Motion?',
+                question: 'Choose the correct statement of Newton\'s First Law of Motion:',
+                options: [
+                    { letter: 'A', text: 'An object at rest stays at rest, and an object in motion continues to move at constant velocity, unless acted upon by an external force' },
+                    { letter: 'B', text: 'Force equals mass times acceleration (F = ma)' },
+                    { letter: 'C', text: 'For every action, there is an equal and opposite reaction' }
+                ],
+                correct: 'A',
+                explanation: 'Newton\'s First Law of Motion, also known as the Law of Inertia, states that an object at rest stays at rest and an object in motion continues to move at constant velocity, unless acted upon by an external force. Option B describes Newton\'s Second Law (F = ma), and option C describes Newton\'s Third Law (action-reaction pairs).'
+            },
+            {
+                id: 'q2',
+                number: 2,
+                text: 'What do waves transfer?',
+                question: 'All waves have one fundamental property in common. What do they transfer?',
+                options: [
+                    { letter: 'A', text: 'Matter from one place to another' },
+                    { letter: 'B', text: 'Energy without transferring matter' },
+                    { letter: 'C', text: 'Both matter and energy together' }
+                ],
+                correct: 'B',
+                explanation: 'Waves transfer energy without transferring matter. This is a fundamental characteristic of all waves. For example, when you drop a stone in water, the ripples carry energy outward, but the water molecules themselves only move up and down - they don\'t travel with the wave. Similarly, sound waves transfer energy through air without moving the air from one place to another.'
+            },
+            {
+                id: 'q3',
+                number: 3,
+                text: 'Which describes a transverse wave?',
+                question: 'In a transverse wave, how do the oscillations relate to the direction of energy transfer?',
+                options: [
+                    { letter: 'A', text: 'Oscillations are parallel to the direction of energy transfer' },
+                    { letter: 'B', text: 'Oscillations are perpendicular to the direction of energy transfer' },
+                    { letter: 'C', text: 'Oscillations are at a 45° angle to the direction of energy transfer' }
+                ],
+                correct: 'B',
+                explanation: 'In a transverse wave, the oscillations (vibrations) are perpendicular (at 90°) to the direction of energy transfer. Think of a wave on a string - if you move the string up and down, the wave travels horizontally along the string, but the oscillations are vertical. Light waves and water surface waves are examples of transverse waves. Option A describes longitudinal waves like sound.'
+            },
+            {
+                id: 'q4',
+                number: 4,
+                text: 'What is frequency measured in?',
+                question: 'The frequency of a wave is defined as the number of waves that pass a point per second. What is its unit?',
+                options: [
+                    { letter: 'A', text: 'Meters (m)' },
+                    { letter: 'B', text: 'Hertz (Hz)' },
+                    { letter: 'C', text: 'Seconds (s)' }
+                ],
+                correct: 'B',
+                explanation: 'Frequency is measured in Hertz (Hz), named after Heinrich Hertz. Since frequency is the number of waves per second, 1 Hz = 1 wave per second. Meters (m) is the unit for wavelength and distance, while seconds (s) is the unit for time and period. For example, if 5 waves pass a point in 1 second, the frequency is 5 Hz.'
+            },
+            {
+                id: 'q5',
+                number: 5,
+                text: 'What is amplitude?',
+                question: 'Which of the following correctly defines the amplitude of a wave?',
+                options: [
+                    { letter: 'A', text: 'The distance from one wave peak to the next wave peak' },
+                    { letter: 'B', text: 'The maximum displacement from the rest position' },
+                    { letter: 'C', text: 'The number of waves per second' }
+                ],
+                correct: 'B',
+                explanation: 'Amplitude is the maximum displacement from the rest (equilibrium) position. It represents how far the wave oscillates from its central position and determines the energy carried by the wave. Option A describes wavelength (distance between peaks), and option C describes frequency. In sound waves, amplitude determines loudness; in light waves, it determines brightness.'
+            },
+            {
+                id: 'q6',
+                number: 6,
+                text: 'Which is an example of a longitudinal wave?',
+                question: 'Longitudinal waves have oscillations parallel to the direction of energy transfer. Which is an example?',
+                options: [
+                    { letter: 'A', text: 'Light waves' },
+                    { letter: 'B', text: 'Sound waves' },
+                    { letter: 'C', text: 'Water waves' }
+                ],
+                correct: 'B',
+                explanation: 'Sound waves are longitudinal waves. In sound, air particles vibrate back and forth in the same direction as the wave travels, creating regions of compression (particles squeezed together) and rarefaction (particles spread apart). Light waves are transverse electromagnetic waves, and water surface waves are primarily transverse (though they have some longitudinal component).'
+            },
+            {
+                id: 'q7',
+                number: 7,
+                text: 'What is the wave equation?',
+                question: 'Which equation correctly relates wave velocity, frequency, and wavelength?',
+                options: [
+                    { letter: 'A', text: 'v = f + λ' },
+                    { letter: 'B', text: 'v = f × λ' },
+                    { letter: 'C', text: 'v = f / λ' }
+                ],
+                correct: 'B',
+                explanation: 'The wave equation is v = f × λ (velocity = frequency × wavelength). This fundamental relationship shows that wave speed equals the number of waves per second multiplied by the length of each wave. For example, if a wave has frequency 10 Hz and wavelength 2 m, its velocity is 10 × 2 = 20 m/s. This equation applies to all types of waves.'
+            },
+            {
+                id: 'q8',
+                number: 8,
+                text: 'What happens during reflection?',
+                question: 'According to the law of reflection, what is the relationship between angles?',
+                options: [
+                    { letter: 'A', text: 'The angle of incidence equals the angle of reflection' },
+                    { letter: 'B', text: 'The angle of incidence is twice the angle of reflection' },
+                    { letter: 'C', text: 'The angles are always 90° apart' }
+                ],
+                correct: 'A',
+                explanation: 'The law of reflection states that the angle of incidence equals the angle of reflection, both measured from the normal (a line perpendicular to the surface). This applies to all types of waves - light reflecting off mirrors, sound echoing off walls, or water waves bouncing off barriers. This principle is fundamental to how mirrors, periscopes, and many optical devices work.'
+            },
+            {
+                id: 'q9',
+                number: 9,
+                text: 'What causes refraction?',
+                question: 'Refraction occurs when a wave changes direction. What causes this to happen?',
+                options: [
+                    { letter: 'A', text: 'The wave bounces off a surface' },
+                    { letter: 'B', text: 'The wave changes speed when entering a new medium' },
+                    { letter: 'C', text: 'The wave\'s frequency changes' }
+                ],
+                correct: 'B',
+                explanation: 'Refraction is caused by a change in wave speed when entering a new medium. When a wave slows down upon entering a denser medium, it bends toward the normal; when it speeds up entering a less dense medium, it bends away from the normal. This is why a straw looks bent in water, or why lenses can focus light. Option A describes reflection, and frequency remains constant during refraction.'
+            },
+            {
+                id: 'q10',
+                number: 10,
+                text: 'If a wave has a frequency of 50 Hz and wavelength of 4 m, what is its velocity?',
+                question: 'Calculate the wave velocity using the wave equation v = f × λ',
+                options: [
+                    { letter: 'A', text: '200 m/s' },
+                    { letter: 'B', text: '12.5 m/s' },
+                    { letter: 'C', text: '54 m/s' }
+                ],
+                correct: 'A',
+                explanation: 'Using the wave equation v = f × λ: v = 50 Hz × 4 m = 200 m/s. Remember that Hz means "per second," so we\'re multiplying 50 waves per second by 4 meters per wave, giving us 200 meters per second. Option B would be if you divided (50/4), and option C would be if you added (50+4), but the correct operation is multiplication.'
+            },
+            {
+                id: 'q11',
+                number: 11,
+                text: 'What determines the pitch of a sound?',
+                question: 'Which wave property determines how high or low a sound appears to be?',
+                options: [
+                    { letter: 'A', text: 'Amplitude' },
+                    { letter: 'B', text: 'Frequency' },
+                    { letter: 'C', text: 'Wavelength' }
+                ],
+                correct: 'B',
+                explanation: 'Frequency determines the pitch of a sound. Higher frequencies produce higher-pitched sounds (like a whistle), while lower frequencies produce lower-pitched sounds (like a bass drum). This is why women\'s voices typically sound higher than men\'s - they have higher fundamental frequencies. Amplitude determines loudness, not pitch, and while wavelength is related to frequency, frequency is the primary determinant of pitch.'
+            },
+            {
+                id: 'q12',
+                number: 12,
+                text: 'What determines the loudness of a sound?',
+                question: 'Which wave property determines how loud or quiet a sound appears to be?',
+                options: [
+                    { letter: 'A', text: 'Amplitude' },
+                    { letter: 'B', text: 'Frequency' },
+                    { letter: 'C', text: 'Velocity' }
+                ],
+                correct: 'A',
+                explanation: 'Amplitude determines the loudness of a sound. Larger amplitude means more energy and louder sound, while smaller amplitude means less energy and quieter sound. Think of shouting (large amplitude) versus whispering (small amplitude). Frequency determines pitch (high or low), and velocity is the speed of sound, which doesn\'t affect loudness under normal conditions.'
+            },
+            {
+                id: 'q13',
+                number: 13,
+                text: 'What is the period of a wave?',
+                question: 'How is the period (T) of a wave defined?',
+                options: [
+                    { letter: 'A', text: 'The number of waves per second' },
+                    { letter: 'B', text: 'The time taken for one complete wave to pass a point' },
+                    { letter: 'C', text: 'The distance between two wave peaks' }
+                ],
+                correct: 'B',
+                explanation: 'The period (T) is the time taken for one complete wave to pass a point, measured in seconds. For example, if one complete wave takes 0.5 seconds to pass, the period is 0.5 s. Option A describes frequency (the reciprocal of period), and option C describes wavelength. Period and frequency are related by the equation f = 1/T.'
+            },
+            {
+                id: 'q14',
+                number: 14,
+                text: 'What is the relationship between frequency and period?',
+                question: 'How are frequency (f) and period (T) mathematically related?',
+                options: [
+                    { letter: 'A', text: 'f = T' },
+                    { letter: 'B', text: 'f = 1/T' },
+                    { letter: 'C', text: 'f = T²' }
+                ],
+                correct: 'B',
+                explanation: 'Frequency and period are reciprocals: f = 1/T. If a wave has a period of 2 seconds (one wave every 2 seconds), its frequency is 1/2 = 0.5 Hz. If a wave has a frequency of 10 Hz (10 waves per second), its period is 1/10 = 0.1 seconds. They are inversely related - as one increases, the other decreases.'
+            },
+            {
+                id: 'q15',
+                number: 15,
+                text: 'What happens when light travels from air into glass?',
+                question: 'When light moves from a less dense to a more dense medium, what occurs?',
+                options: [
+                    { letter: 'A', text: 'It bends away from the normal and speeds up' },
+                    { letter: 'B', text: 'It bends toward the normal and slows down' },
+                    { letter: 'C', text: 'It continues in a straight line unchanged' }
+                ],
+                correct: 'B',
+                explanation: 'When light travels from air (less dense) into glass (more dense), it slows down and bends toward the normal. This is because glass has a higher refractive index than air. The light slows down because it interacts more with the atoms in the denser medium. Option A would occur if light went from glass to air, and option C only happens when light hits the boundary at 90° (perpendicular).'
+            },
+            {
+                id: 'q16',
+                number: 16,
+                text: 'What are compressions and rarefactions?',
+                question: 'In longitudinal waves, what do compressions and rarefactions represent?',
+                options: [
+                    { letter: 'A', text: 'Regions where particles are squeezed together and spread apart' },
+                    { letter: 'B', text: 'The highest and lowest points of the wave' },
+                    { letter: 'C', text: 'Different types of wave interference' }
+                ],
+                correct: 'A',
+                explanation: 'In longitudinal waves like sound, compressions are regions where particles are squeezed together (high pressure), and rarefactions are regions where particles are spread apart (low pressure). These correspond to the peaks and troughs of transverse waves but occur along the direction of wave travel. Option B describes peaks and troughs in transverse waves, not longitudinal waves.'
+            },
+            {
+                id: 'q17',
+                number: 17,
+                text: 'Why can\'t sound travel through space?',
+                question: 'Sound waves cannot travel through the vacuum of space. Why is this?',
+                options: [
+                    { letter: 'A', text: 'Space is too cold for sound waves' },
+                    { letter: 'B', text: 'Sound needs particles to vibrate and space has no air' },
+                    { letter: 'C', text: 'Gravity prevents sound waves from traveling' }
+                ],
+                correct: 'B',
+                explanation: 'Sound cannot travel through space because it needs particles (like air molecules) to vibrate and carry the wave energy. Sound is a mechanical wave that requires a medium. Space is a vacuum with virtually no particles, so there\'s nothing to vibrate and transmit the sound. This is why explosions in space movies are scientifically incorrect - they would be silent! Temperature and gravity don\'t prevent sound travel.'
+            },
+            {
+                id: 'q18',
+                number: 18,
+                text: 'What is wavelength measured in?',
+                question: 'Wavelength is the distance from one wave peak to the next. What unit is used?',
+                options: [
+                    { letter: 'A', text: 'Hertz (Hz)' },
+                    { letter: 'B', text: 'Meters (m)' },
+                    { letter: 'C', text: 'Seconds (s)' }
+                ],
+                correct: 'B',
+                explanation: 'Wavelength is measured in meters (m) because it represents a distance - specifically, the distance from one point on a wave to the corresponding point on the next wave (like peak to peak or trough to trough). Hertz (Hz) is used for frequency, and seconds (s) for time and period. Wavelengths can be very small (nanometers for light) or very large (kilometers for radio waves).'
+            },
+            {
+                id: 'q19',
+                number: 19,
+                text: 'If 20 waves pass a point in 5 seconds, what is the frequency?',
+                question: 'Calculate the frequency using: frequency = number of waves ÷ time',
+                options: [
+                    { letter: 'A', text: '4 Hz' },
+                    { letter: 'B', text: '25 Hz' },
+                    { letter: 'C', text: '100 Hz' }
+                ],
+                correct: 'A',
+                explanation: 'Frequency = number of waves ÷ time = 20 waves ÷ 5 seconds = 4 Hz. This means 4 waves pass the point every second. Option B (25 Hz) would be if you multiplied 20 × 5, and option C (100 Hz) would be if you calculated 20² ÷ 5, but the correct calculation is simple division: total waves divided by total time.'
+            },
+            {
+                id: 'q20',
+                number: 20,
+                text: 'What is the normal in wave diagrams?',
+                question: 'In reflection and refraction diagrams, what is the normal line?',
+                options: [
+                    { letter: 'A', text: 'A line drawn at 90° to the surface' },
+                    { letter: 'B', text: 'A line drawn parallel to the surface' },
+                    { letter: 'C', text: 'A line drawn at 45° to the surface' }
+                ],
+                correct: 'A',
+                explanation: 'The normal is a line drawn perpendicular (at 90°) to the surface at the point where the wave hits. It serves as a reference line for measuring angles of incidence and reflection/refraction. All angles in wave diagrams are measured from this normal line, not from the surface itself. This standard reference makes it easier to apply laws of reflection and refraction consistently.'
+            },
+            {
+                id: 'q21',
+                number: 21,
+                text: 'Which waves can travel through a vacuum?',
+                question: 'Some waves require a medium to travel through, while others don\'t. Which can travel through empty space?',
+                options: [
+                    { letter: 'A', text: 'Sound waves only' },
+                    { letter: 'B', text: 'Light waves only' },
+                    { letter: 'C', text: 'Both sound and light waves' }
+                ],
+                correct: 'B',
+                explanation: 'Only light waves (electromagnetic waves) can travel through a vacuum. Light doesn\'t need a medium because it consists of oscillating electric and magnetic fields that can propagate through empty space. This is how sunlight reaches Earth through the vacuum of space. Sound waves are mechanical waves that require particles to vibrate, so they cannot travel through a vacuum.'
+            },
+            {
+                id: 'q22',
+                number: 22,
+                text: 'What happens to wavelength when frequency increases (with constant speed)?',
+                question: 'If wave speed stays constant but frequency increases, what happens to wavelength?',
+                options: [
+                    { letter: 'A', text: 'Wavelength increases' },
+                    { letter: 'B', text: 'Wavelength decreases' },
+                    { letter: 'C', text: 'Wavelength stays the same' }
+                ],
+                correct: 'B',
+                explanation: 'When frequency increases while speed remains constant, wavelength decreases. This follows from the wave equation v = fλ. If v is constant and f increases, then λ must decrease to maintain the equation. Think of it this way: if more waves are passing per second (higher frequency), each individual wave must be shorter (smaller wavelength) to fit in the same space.'
+            },
+            {
+                id: 'q23',
+                number: 23,
+                text: 'What is diffraction?',
+                question: 'Diffraction is another important wave behavior. What is it?',
+                options: [
+                    { letter: 'A', text: 'The bending of waves around obstacles or through gaps' },
+                    { letter: 'B', text: 'The bouncing of waves off surfaces' },
+                    { letter: 'C', text: 'The change in wave speed in different media' }
+                ],
+                correct: 'A',
+                explanation: 'Diffraction is the bending of waves around obstacles or through gaps. This allows you to hear someone around a corner or for water waves to spread out after passing through a harbor entrance. The amount of diffraction depends on the wavelength compared to the size of the obstacle or gap. Option B describes reflection, and option C describes what causes refraction.'
+            },
+            {
+                id: 'q24',
+                number: 24,
+                text: 'If a wave has a period of 0.5 seconds, what is its frequency?',
+                question: 'Use the relationship f = 1/T to calculate the frequency',
+                options: [
+                    { letter: 'A', text: '0.5 Hz' },
+                    { letter: 'B', text: '2 Hz' },
+                    { letter: 'C', text: '1.5 Hz' }
+                ],
+                correct: 'B',
+                explanation: 'Using f = 1/T: f = 1/0.5 = 2 Hz. This means that if one complete wave takes 0.5 seconds, then 2 complete waves occur in 1 second. Period and frequency are reciprocals - a shorter period means higher frequency. Option A would be if f = T (incorrect relationship), and option C has no mathematical basis in this problem.'
+            },
+            {
+                id: 'q25',
+                number: 25,
+                text: 'What are the peaks and troughs of a wave?',
+                question: 'In a transverse wave, what do peaks and troughs represent?',
+                options: [
+                    { letter: 'A', text: 'The maximum and minimum displacements from rest position' },
+                    { letter: 'B', text: 'The points where the wave starts and stops' },
+                    { letter: 'C', text: 'The fastest and slowest moving parts of the wave' }
+                ],
+                correct: 'A',
+                explanation: 'Peaks (crests) and troughs represent the maximum and minimum displacements from the rest position in a transverse wave. The peak is the highest point (maximum positive displacement), and the trough is the lowest point (maximum negative displacement). These points have zero velocity but maximum displacement. Option B is incorrect as waves are continuous, and option C describes points of maximum and minimum velocity, not displacement.'
+            },
+            {
+                id: 'q26',
+                number: 26,
+                text: 'A wave travels 100 meters in 5 seconds. What is its speed?',
+                question: 'Calculate wave speed using: speed = distance ÷ time',
+                options: [
+                    { letter: 'A', text: '20 m/s' },
+                    { letter: 'B', text: '500 m/s' },
+                    { letter: 'C', text: '105 m/s' }
+                ],
+                correct: 'A',
+                explanation: 'Speed = distance ÷ time = 100 m ÷ 5 s = 20 m/s. This is a straightforward application of the speed formula. Option B (500 m/s) would be if you multiplied 100 × 5, and option C (105 m/s) would be if you added 100 + 5, but the correct operation for speed is always distance divided by time.'
+            },
+            {
+                id: 'q27',
+                number: 27,
+                text: 'What stays constant when a wave refracts?',
+                question: 'When a wave enters a new medium and refracts, which property remains unchanged?',
+                options: [
+                    { letter: 'A', text: 'Wavelength' },
+                    { letter: 'B', text: 'Frequency' },
+                    { letter: 'C', text: 'Speed' }
+                ],
+                correct: 'B',
+                explanation: 'Frequency remains constant during refraction. When a wave enters a new medium, its speed and wavelength change, but the frequency (number of waves per second) stays the same. This is because the source of the wave hasn\'t changed - it\'s still producing the same number of waves per second. The wave equation v = fλ shows that if f is constant and v changes, then λ must also change proportionally.'
+            },
+            {
+                id: 'q28',
+                number: 28,
+                text: 'Which type of wave is light?',
+                question: 'Light is a type of electromagnetic wave. What kind of wave is it classified as?',
+                options: [
+                    { letter: 'A', text: 'Longitudinal wave' },
+                    { letter: 'B', text: 'Transverse wave' },
+                    { letter: 'C', text: 'Neither longitudinal nor transverse' }
+                ],
+                correct: 'B',
+                explanation: 'Light is a transverse wave. In electromagnetic waves like light, the electric and magnetic fields oscillate perpendicular to the direction of wave propagation and perpendicular to each other. This transverse nature of light can be demonstrated through polarization - polarizing filters can block light oscillating in certain directions, which wouldn\'t be possible if light were longitudinal.'
+            },
+            {
+                id: 'q29',
+                number: 29,
+                text: 'What is interference?',
+                question: 'When two waves meet, they can interfere with each other. What is interference?',
+                options: [
+                    { letter: 'A', text: 'When waves combine to produce a new wave pattern' },
+                    { letter: 'B', text: 'When waves cancel each other out completely' },
+                    { letter: 'C', text: 'When waves bounce off each other' }
+                ],
+                correct: 'A',
+                explanation: 'Interference occurs when waves combine to produce a new wave pattern. This can result in constructive interference (waves add up to create larger amplitudes) or destructive interference (waves subtract to create smaller amplitudes or cancel out). Option B describes only destructive interference, while option C describes reflection. Interference is fundamental to many phenomena including noise-canceling headphones and the colors in soap bubbles.'
+            },
+            {
+                id: 'q30',
+                number: 30,
+                text: 'If a wave has frequency 100 Hz and velocity 340 m/s, what is its wavelength?',
+                question: 'Use the wave equation v = fλ, rearranged to find wavelength: λ = v/f',
+                options: [
+                    { letter: 'A', text: '3.4 m' },
+                    { letter: 'B', text: '34,000 m' },
+                    { letter: 'C', text: '440 m' }
+                ],
+                correct: 'A',
+                explanation: 'Using λ = v/f: λ = 340 m/s ÷ 100 Hz = 3.4 m. Remember that Hz means "per second," so we\'re dividing 340 meters per second by 100 per second, giving 3.4 meters. This is actually close to the wavelength of sound at this frequency in air. Option B would be if you multiplied (340 × 100), and option C would be if you added (340 + 100).'
+            }
+        ];
 
-        function selectOption(element, questionName, value) {
-            // Remove selection from all options in this question
-            const question = element.closest('.question');
-            question.querySelectorAll('li').forEach(li => {
-                li.style.background = 'white';
-                li.style.borderColor = '#ecf0f1';
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            const container = document.getElementById('questionContainer');
+            
+            let optionsHTML = '';
+            question.options.forEach(option => {
+                optionsHTML += `
+                    <li onclick="selectOption('${option.letter}', this)">
+                        <div class="option-letter">${option.letter}</div>
+                        <div class="option-text">${option.text}</div>
+                    </li>
+                `;
             });
             
-            // Highlight selected option
-            element.style.background = '#f0f7ff';
-            element.style.borderColor = '#3498db';
-            
-            // Check the radio button
-            const radio = element.querySelector('input[type="radio"]');
-            radio.checked = true;
+            container.innerHTML = `
+                <span class="question-number">${question.number}. ${question.text}</span>
+                <div class="question-text">${question.question}</div>
+                <ul class="options" id="optionsList">
+                    ${optionsHTML}
+                </ul>
+            `;
             
             updateProgress();
+            resetQuestion();
+        }
+
+        function selectOption(letter, element) {
+            // Remove previous selections
+            document.querySelectorAll('.options li').forEach(li => {
+                li.classList.remove('selected');
+            });
+            
+            // Select new option
+            element.classList.add('selected');
+            selectedAnswer = letter;
+            
+            // Enable check answer button
+            document.getElementById('answerBtn').disabled = false;
+        }
+
+        function checkAnswer() {
+            if (!selectedAnswer) return;
+            
+            const question = questions[currentQuestionIndex];
+            const isCorrect = selectedAnswer === question.correct;
+            const explanationDiv = document.getElementById('explanation');
+            
+            if (isCorrect) {
+                score++;
+                explanationDiv.className = 'explanation correct';
+                explanationDiv.innerHTML = `
+                    <h4>✅ Correct!</h4>
+                    <p><strong>Answer:</strong> ${question.correct}</p>
+                    <p>${question.explanation}</p>
+                `;
+            } else {
+                explanationDiv.className = 'explanation incorrect';
+                explanationDiv.innerHTML = `
+                    <h4>❌ Incorrect</h4>
+                    <p><strong>Your answer:</strong> ${selectedAnswer}</p>
+                    <p><strong>Correct answer:</strong> ${question.correct}</p>
+                    <p><strong>Explanation:</strong> ${question.explanation}</p>
+                `;
+            }
+            
+            explanationDiv.style.display = 'block';
+            document.getElementById('answerBtn').style.display = 'none';
+            
+            if (currentQuestionIndex < questions.length - 1) {
+                document.getElementById('nextBtn').style.display = 'inline-block';
+            } else {
+                document.getElementById('nextBtn').innerHTML = 'View Final Results';
+                document.getElementById('nextBtn').style.display = 'inline-block';
+            }
+            
+            answered = true;
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion();
+            } else {
+                showFinalResults();
+            }
+        }
+
+        function resetQuestion() {
+            selectedAnswer = null;
+            answered = false;
+            document.getElementById('answerBtn').disabled = true;
+            document.getElementById('answerBtn').style.display = 'inline-block';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('explanation').style.display = 'none';
         }
 
         function updateProgress() {
-            answeredQuestions = 0;
-            for (let i = 1; i <= totalQuestions; i++) {
-                const radios = document.getElementsByName(`q${i}`);
-                for (let radio of radios) {
-                    if (radio.checked) {
-                        answeredQuestions++;
-                        break;
-                    }
-                }
-            }
-            
-            const progressPercentage = (answeredQuestions / totalQuestions) * 100;
-            document.getElementById('progressBar').style.width = progressPercentage + '%';
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
         }
 
-        function submitExam() {
-            let score = 0;
-            let unanswered = [];
-            
-            for (let i = 1; i <= totalQuestions; i++) {
-                const radios = document.getElementsByName(`q${i}`);
-                let answered = false;
-                
-                for (let radio of radios) {
-                    if (radio.checked) {
-                        answered = true;
-                        if (radio.value === correctAnswers[`q${i}`]) {
-                            score++;
-                        }
-                        break;
-                    }
-                }
-                
-                if (!answered) {
-                    unanswered.push(i);
-                }
-            }
-            
-            if (unanswered.length > 0) {
-                alert(`Please answer all questions. Missing: ${unanswered.join(', ')}`);
-                return;
-            }
-            
-            const percentage = Math.round((score / totalQuestions) * 100);
+        function showFinalResults() {
+            const percentage = Math.round((score / questions.length) * 100);
             const grade = getGrade(percentage);
             
-            document.getElementById('results').innerHTML = `
-                <div style="background: #2ecc71; color: white; padding: 20px; border-radius: 10px; text-align: center;">
-                    <h3>🎉 Exam Results 🎉</h3>
-                    <p style="font-size: 1.5em; margin: 10px 0;"><strong>${score}/${totalQuestions}</strong></p>
-                    <p style="font-size: 1.3em; margin: 10px 0;"><strong>${percentage}%</strong></p>
-                    <p style="font-size: 1.2em;"><strong>Grade: ${grade}</strong></p>
-                    <p style="margin-top: 15px;">Great work on completing the waves exam!</p>
-                </div>
-            `;
+            document.getElementById('questionContainer').style.display = 'none';
+            document.getElementById('explanation').style.display = 'none';
+            document.getElementById('answerBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
             
-            document.getElementById('results').style.display = 'block';
-            document.querySelector('.submit-btn').style.display = 'none';
+            const finalResults = document.getElementById('finalResults');
+            finalResults.innerHTML = `
+                <h2>🎉 Exam Complete! 🎉</h2>
+                <div class="score-display">
+                    ${score}/${questions.length} (${percentage}%)
+                </div>
+                <p><strong>Grade: ${grade}</strong></p>
+                <p>Great work on completing the waves exam! You answered ${score} questions correctly out of ${questions.length}.</p>
+                <button class="restart-btn" onclick="restartQuiz()">Take Quiz Again</button>
+            `;
+            finalResults.style.display = 'block';
+            
+            // Update progress to 100%
+            document.getElementById('progressBar').style.width = '100%';
         }
 
         function getGrade(percentage) {
@@ -1181,6 +806,19 @@
             if (percentage >= 40) return 'E';
             return 'F';
         }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById('questionContainer').style.display = 'block';
+            document.getElementById('finalResults').style.display = 'none';
+            displayQuestion();
+        }
+
+        // Initialize the quiz when the page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            displayQuestion();
+        });
     </script>
 </body>
 </html>
