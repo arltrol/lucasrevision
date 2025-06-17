@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,4 +93,70 @@
         question: "What is an example of application software?",
         options: ["Antivirus", "Operating System", "Word Processor", "Device Driver"],
         answer: 2,
-        explanation: "Word processors are application softwa
+        explanation: "Word processors are application software used to perform specific tasks like writing documents."
+      },
+      {
+        question: "Which of these is a wireless connection type?",
+        options: ["Ethernet", "Bluetooth", "USB", "HDMI"],
+        answer: 1,
+        explanation: "Bluetooth is a wireless connection method."
+      },
+      {
+        question: "What does a firewall do?",
+        options: ["Boosts WiFi", "Blocks unauthorized access", "Stores passwords", "Manages files"],
+        answer: 1,
+        explanation: "A firewall blocks unauthorized access to or from a network for security."
+      }
+    ];
+
+    let currentQuestion = 0;
+    let shuffled = [...questions].sort(() => 0.5 - Math.random());
+
+    const questionText = document.getElementById('questionText');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const feedback = document.getElementById('feedback');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function showQuestion(index) {
+      const q = shuffled[index];
+      questionText.textContent = q.question;
+      optionsContainer.innerHTML = '';
+      feedback.textContent = '';
+      feedback.className = 'feedback';
+      nextBtn.style.display = 'none';
+
+      q.options.forEach((option, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = option;
+        btn.onclick = () => checkAnswer(i, q);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selectedIndex, question) {
+      const isCorrect = selectedIndex === question.answer;
+      feedback.textContent = isCorrect
+        ? "✅ Correct! " + question.explanation
+        : "❌ BAD BUCK BUCK! The correct answer is \"" + question.options[question.answer] + "\". " + question.explanation;
+      feedback.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
+      document.querySelectorAll('.option-btn').forEach(btn => btn.disabled = true);
+      nextBtn.style.display = 'block';
+    }
+
+    nextBtn.onclick = () => {
+      currentQuestion++;
+      if (currentQuestion < shuffled.length) {
+        showQuestion(currentQuestion);
+      } else {
+        questionText.textContent = "🎉 Well done, you've completed the quiz!";
+        optionsContainer.innerHTML = '';
+        feedback.textContent = '';
+        nextBtn.style.display = 'none';
+      }
+    };
+
+    showQuestion(currentQuestion);
+  </script>
+</body>
+</html>
