@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucas Quiz Game</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2em;
+    }
+    .question-box {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .options {
+      margin-top: 15px;
+    }
+    button.option-btn {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 12px;
+      background: #292929;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    button.option-btn:hover {
+      background: #3a3a3a;
+    }
+    .feedback {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 1.1em;
+    }
+    .correct {
+      background-color: #2e7d32;
+    }
+    .incorrect {
+      background-color: #c62828;
+    }
+    #nextBtn {
+      margin-top: 20px;
+      display: none;
+      padding: 10px 20px;
+      background: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 Lucas Quiz Game 🎮</h1>
+  <div class="question-box">
+    <div id="questionText">Loading question...</div>
+    <div class="options" id="optionsContainer"></div>
+    <div id="feedback" class="feedback"></div>
+    <button id="nextBtn">Next Question</button>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "What is the purpose of the CPU?",
+        options: ["Store data", "Execute instructions", "Display graphics", "Connect to the Internet"],
+        answer: 1,
+        explanation: "The CPU (Central Processing Unit) is responsible for executing instructions in a computer."
+      },
+      {
+        question: "Which is a volatile type of memory?",
+        options: ["ROM", "SSD", "RAM", "DVD"],
+        answer: 2,
+        explanation: "RAM is volatile, meaning it loses its data when power is turned off."
+      },
+      {
+        question: "What is an example of application software?",
+        options: ["Antivirus", "Operating System", "Word Processor", "Device Driver"],
+        answer: 2,
+        explanation: "Word processors are application software used to perform specific tasks like writing documents."
+      },
+      {
+        question: "Which of these is a wireless connection type?",
+        options: ["Ethernet", "Bluetooth", "USB", "HDMI"],
+        answer: 1,
+        explanation: "Bluetooth is a wireless connection method."
+      },
+      {
+        question: "What does a firewall do?",
+        options: ["Boosts WiFi", "Blocks unauthorized access", "Stores passwords", "Manages files"],
+        answer: 1,
+        explanation: "A firewall blocks unauthorized access to or from a network for security."
+      }
+    ];
+
+    let currentQuestion = 0;
+    let shuffled = [...questions].sort(() => 0.5 - Math.random());
+
+    const questionText = document.getElementById('questionText');
+    const optionsContainer = document.getElementById('optionsContainer');
+    ​:contentReference[oaicite:0]{index=0}​
